@@ -1,4 +1,5 @@
 ﻿using eTickets_2.Data;
+using eTickets_2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ namespace eTickets_2.Controllers
         {
             _context = context;
         }
+
         public async Task<IActionResult> Index()
         {
             var allCinemas = await _context.cinemas.ToListAsync();

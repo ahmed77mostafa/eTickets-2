@@ -1,0 +1,45 @@
+﻿@model Actor
+
+@{
+    ViewData["Title"] = "ActorEdit";
+}
+
+<h1>ActorEdit</h1>
+
+<h4>@Html.DisplayFor(item => item.Name) Profile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProfilePicURL" class="control-label fw-bolder"></label>
+                <input asp-for="ProfilePicURL" class="form-control" />
+                <span asp-validation-for="ProfilePicURL" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label fw-bolder"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Bio" class="control-label fw-bolder"></label>
+                <input asp-for="Bio" class="form-control" />
+                <span asp-validation-for="Bio" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-info text-white">Back to List</a>
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
